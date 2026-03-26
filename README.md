@@ -1,41 +1,62 @@
-README.md
 Searchify: Minimalist Full-Text Search Engine
-Searchify is a lightweight, high-performance search application built with Python and Flask. It demonstrates efficient data retrieval, smart content highlighting, and a clean user experience using a relational database.
 
-Core Value
-The primary value of this project is Search Efficiency. Instead of basic pattern matching, Searchify uses SQLite’s FTS5 (Full-Text Search) virtual tables. This allows for "Google-like" speed and relevance across local datasets, bridging the gap between raw data and a dynamic, interactive user interface.
+Searchify is a lightweight, high-performance search application built with Python and Flask. It focuses on efficient data retrieval, smart content highlighting, and a "Quiet Luxury" inspired user interface.
 
-How to Search
-The engine is pre-seeded with a wide variety of articles. To see the project in action, try searching for these specific terms or topics:
+💎 Core Value
+The primary value of this project is Search Efficiency. Instead of relying on slow, basic pattern matching, Searchify implements SQLite FTS5 (Full-Text Search) virtual tables.
 
-Programming: Search for "Python", "Flask", "Docker", or "JavaScript".
+Speed: Instant results across extensive local datasets.
 
-AI & Science: Look up "Machine Learning", "Black Holes", or "CRISPR".
+Relevance: Advanced ranking that mimics modern search engine behavior.
 
-Entertainment: Search for "Batman", "Christopher Nolan", or "Stranger Things".
+Scalability: Optimized indexing that bridges the gap between raw data and dynamic user interaction.
 
-Literature: Find classics like "1984", "The Great Gatsby", or "The Alchemist".
+🔍 How to Search
+The engine is pre-seeded with diverse articles. Try searching for these specific keywords to see the engine's precision:
 
-Recipes: Try searching for ingredients or dishes like "Carbonara", "Pasta", or "Chocolate".
+Programming & Dev: Python, Flask, Docker, or JavaScript.
 
-Travel: Explore destinations like "Tokyo", "Bali", or "Santorini".
+AI & Science: Machine Learning, Black Holes, or CRISPR.
 
-Key Features
-Full-Text Search Engine: Optimized indexing via SQLite FTS5 for rapid query execution.
+Entertainment: Batman, Christopher Nolan, or Stranger Things.
 
-Smart Snippet Highlighting: A custom regex utility that extracts relevant text segments and wraps matches in <mark> tags.
+Literature: 1984, The Great Gatsby, or The Alchemist.
 
-Persistent Search History: Tracks recent queries and displays them as interactive pills for quick access.
+Gastronomy: Carbonara, Pasta, or Chocolate.
 
-Dual-Theme Support: A persistent dark/light mode toggle utilizing CSS variables and LocalStorage.
+Global Travel: Tokyo, Bali, or Santorini.
 
-Server-Side Pagination: Efficiently handles result sets by loading data in manageable chunks.
+🚀 Key Features
+Full-Text Search Engine
 
-Technical Stack
-Backend: Python, Flask
+Optimized indexing via SQLite FTS5 for rapid, low-latency query execution.
 
-Database: SQLite3 (FTS5 Extension)
+Smart Snippet Highlighting
 
-Frontend: Jinja2, Vanilla JavaScript, CSS3 (Flexbox/Grid)
+A custom regex-based utility that extracts the most relevant text segments and wraps matches in <mark> tags for high visibility.
 
-Text Processing: Python re module for snippet generation.
+Persistent Search History
+
+Features a "Recent Searches" section using interactive pills for quick re-entry.
+
+Dual-Theme Support
+
+A seamless Dark/Light mode toggle powered by CSS variables and LocalStorage for persistence.
+
+Server-Side Pagination
+
+Efficiently manages large result sets by loading data in precise, manageable chunks.
+
+🛠 Technical Stack
+Backend: Python | Flask
+
+Database: SQLite3 (utilizing the FTS5 Extension)
+
+Frontend: Jinja2 | Vanilla JavaScript | CSS3 (Flexbox & Grid)
+
+Text Processing: Python re module for intelligent snippet generation.
+
+📈 Project Logic
+The system works by creating a virtual index of all stored text. When a user submits a query, the backend doesn't just look for matches; it identifies the most relevant "snippets" of text, ensures the UI reflects the user's preferred theme, and updates the search history in real-time.
+
+Would you like me to help you customize the Terracotta and Slate color codes in your style.css to match this new README vibe?
