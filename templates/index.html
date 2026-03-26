@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Searchify</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script>
+    const t = localStorage.getItem("theme") || "light";
+    document.documentElement.setAttribute("data-theme", t);
+  </script>
+</head>
+<body>
+
+  <button class="theme-toggle" id="theme-toggle">Dark mode</button>
+
+  <div class="home-wrapper">
+
+    <div class="logo-area">
+      <h1 class="logo-text">Searchify</h1>
+      <p class="tagline">Fast. Minimal. Yours.</p>
+    </div>
+
+    <form action="/search" method="GET" class="search-form">
+      <div class="search-bar-wrap">
+        <input
+          type="text"
+          name="q"
+          class="search-box"
+          placeholder="Search articles, topics, keywords..."
+          autocomplete="off"
+          autofocus
+        />
+        <button type="submit" class="search-btn">Search</button>
+      </div>
+    </form>
+
+    {% if history %}
+    <div class="history-section">
+      <p class="history-label">Recent searches</p>
+      <div class="history-pills">
+        {% for item in history %}
+          <a href="/search?q={{ item.query }}" class="pill">{{ item.query }}</a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

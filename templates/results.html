@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ query }} — Searchify</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script>
+    const t = localStorage.getItem("theme") || "light";
+    document.documentElement.setAttribute("data-theme", t);
+  </script>
+</head>
+<body>
+
+  <button class="theme-toggle" id="theme-toggle">Dark mode</button>
+
+  <header class="results-header">
+    <a href="/" class="header-logo">Searchify</a>
+    <form action="/search" method="GET" class="header-search-form">
+      <input type="text" name="q" value="{{ query }}" class="search-box header-search-box"/>
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+  </header>
+
+  <main class="results-wrapper">
+
+    <p class="result-count">
+      About <strong>{{ total }}</strong> result{{ 's' if total != 1 }} for
+      <span class="query-highlight">"{{ query }}"</span>
+    </p>
+
+    {% if results %}
+      {% for doc in results %}
+      <div class="result-card">
+        <span class="result-category">{{ doc.category }}</span>
+        <h2 class="result-title">{{ doc.title }}</h2>
+        <p class="result-snippet">
+          {{ highlight(doc.content, query) | safe }}
+        </p>
+        <span class="result-meta">
+          {{ doc.created_at[:10] if doc.created_at else '' }}
+        </span>
+      </div>
+      {% endfor %}
+
+    {% else %}
+      <div class="no-results">
+        <p>No results found for <strong>"{{ query }}"</strong></p>
+        <p>Try different keywords or check your spelling.</p>
+      </div>
+    {% endif %}
+
+    {% if total_pages > 1 %}
+    <div class="pagination">
+      {% if page > 1 %}
+        <a href="/search?q={{ query }}&page={{ page - 1 }}" class="page-btn">Prev</a>
+      {% endif %}
+      {% for p in range(1, total_pages + 1) %}
+        <a href="/search?q={{ query }}&page={{ p }}"
+           class="page-btn {% if p == page %}active{% endif %}">{{ p }}</a>
+      {% endfor %}
+      {% if page < total_pages %}
+        <a href="/search?q={{ query }}&page={{ page + 1 }}" class="page-btn">Next</a>
+      {% endif %}
+    </div>
+    {% endif %}
+
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
