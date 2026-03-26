@@ -58,5 +58,3 @@ Text Processing: Python re module for intelligent snippet generation.
 
 📈 Project Logic
 The system works by creating a virtual index of all stored text. When a user submits a query, the backend doesn't just look for matches; it identifies the most relevant "snippets" of text, ensures the UI reflects the user's preferred theme, and updates the search history in real-time.
-
-Would you like me to help you customize the Terracotta and Slate color codes in your style.css to match this new README vibe?
