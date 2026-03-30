@@ -1,5 +1,4 @@
 import os
 
-# SQLite database file path — stored in the project folder
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-DB_PATH = os.path.join(BASE_DIR, "searchify.db")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATABASE = os.path.join(BASE_DIR, 'searchify.db')
